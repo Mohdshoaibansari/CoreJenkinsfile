@@ -20,30 +20,31 @@ pipeline {
 
 	
 	stages {
-	    stage ('Input') {
-            //Input is defined at stage level and variables are available on stage level only.
-            input {
-                message "Press OK to Continue"
-                parameters{
-                    string(name:'username', defaultValue: 'User', description: 'Username of the user pressing Ok')
-                    string(name:'Number',defaultValue:'one')
-                }
-            }
-	        steps{
-                	sh 'echo "Input Stage"'
-			sh 'echo "Username is ${username} and number is ${Number}"'
-	        }
-	    }
+		
 	    stage ('Script Directive Test') {
 	        steps {
 			script{
 				cleanWs()		
 			}
-	            
-	            sh 'echo ${OUTPUT_PATH}'
-	            
 	        }
 	    }
+		
+	    stage ('Input') {
+            //Input is defined at stage level and variables are available on stage level only.
+		    input {
+			message "Press OK to Continue"
+			parameters{
+			    string(name:'username', defaultValue: 'User', description: 'Username of the user pressing Ok')
+			    string(name:'Number',defaultValue:'one')
+					}
+			    }
+			steps{
+				sh 'echo "Input Stage"'
+				sh 'echo "Username is ${username} and number is ${Number}"'
+				}
+	    }
+		
+		
 	    stage ('Environment Variable') {
 	        steps {
 	            sh 'echo ${OUTPUT_PATH}'
