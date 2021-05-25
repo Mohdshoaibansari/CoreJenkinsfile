@@ -18,7 +18,6 @@ pipeline {
         timeout(time: 1, unit: 'HOURS') 
     }
 
-
 	
 	stages {
 	    stage ('Input') {
@@ -27,19 +26,26 @@ pipeline {
                 message "Press OK to Continue"
                 parameters{
                     string(name:'username', defaultValue: 'User', description: 'Username of the user pressing Ok')
-                    string(name:'Number',defaultValue:'1')
+                    string(name:'Number',defaultValue:'one')
                 }
             }
 	        steps{
-                sh 'echo "Input Stage"'
-
+                	sh 'echo "Input Stage"'
+			sh 'echo "Username is ${username} and number is ${Number}"'
 	        }
-		    
-
 	    }
-	    stage ('Clean Workspace') {
+	    stage ('Script Directive Test') {
 	        steps {
-	            cleanWs()
+			script{
+				cleanWs()		
+			}
+	            
+	            sh 'echo ${OUTPUT_PATH}'
+	            
+	        }
+	    }
+	    stage ('Environment Variable') {
+	        steps {
 	            sh 'echo ${OUTPUT_PATH}'
 	            
 	        }
