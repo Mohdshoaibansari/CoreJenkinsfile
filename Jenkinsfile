@@ -53,7 +53,10 @@ pipeline {
 
 		    steps {
 		        sh 'echo first'
-			sh 'pwd'
+			sh 'mkdir new_dir'
+			dir('new_dir') {
+				sh 'pwd'
+						}
 		        sh '''
 		        echo "Multiline Step" > test.txt
 		        ls -lrt
