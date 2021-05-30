@@ -52,8 +52,11 @@ pipeline {
 		stage ('build') {
 
 		    steps {
-			def browsers     
-			browsers=fileExists 'README.md'
+			script {
+			    def browsers = fileExists 'README.md'
+
+			    }
+
 		        sh 'echo first'
 			sh 'mkdir new_dir'
 			dir('new_dir') {
