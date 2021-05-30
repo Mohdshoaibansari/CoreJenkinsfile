@@ -54,6 +54,7 @@ pipeline {
 		    steps {
 			script {
 			    def var=fileExists 'README.txt'
+				echo '${var}'
 			    if(var) { 
 				    echo 'Present'
 					} else{ 
