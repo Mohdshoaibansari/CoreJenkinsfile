@@ -23,9 +23,7 @@ pipeline {
 		
 	    stage ('Script Directive clone test') {
 	        steps {
-			//script{
 				checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Jenkins_shoby', url: 'https://github.com/Mohdshoaibansari/kubernetes_basics.git']]])		
-			//}
 	        }
 	    }
 		
@@ -54,7 +52,8 @@ pipeline {
 		stage ('build') {
 
 		    steps {
-		        sh 'echo first'    
+		        sh 'echo first'
+			sh 'pwd'
 		        sh '''
 		        echo "Multiline Step" > test.txt
 		        ls -lrt
