@@ -23,9 +23,9 @@ pipeline {
 		
 	    stage ('Script Directive clone test') {
 	        steps {
-			script{
+			//script{
 				checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Jenkins_shoby', url: 'https://github.com/Mohdshoaibansari/kubernetes_basics.git']]])		
-			}
+			//}
 	        }
 	    }
 		
