@@ -54,7 +54,7 @@ pipeline {
 		    steps {
 			script {
 			    def browsers = fileExists 'README.md'
-				echo '${browsers}'
+				echo '$browsers'
 			    }
 
 		        sh 'echo first'
