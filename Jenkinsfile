@@ -3,7 +3,7 @@ pipeline {
 	//Can be declared at pipeline or stage level and will be available accordingly.
 
     parameters {
-                string(name: 'firstParam', defaultValue: 'John', description: 'A user that triggers the pipeline')
+                string(name: 'firstParams', defaultValue: 'John', description: 'A user that triggers the pipeline')
                 text(name: 'DEPLOY_TEXT', defaultValue: 'One\nTwo\nThree\n', description: '')
                 booleanParam(name: 'DEBUG_BUILD', defaultValue: true, description: '')
                 choice(name: 'CHOICES', choices: ['one', 'two', 'three'], description: '') 
