@@ -53,8 +53,11 @@ pipeline {
 
 		    steps {
 			script {
-			    def browsers = fileExists 'README.md'
-				echo '$browsers'
+			    if(fileExists 'README.md') { 
+				    echo 'Present'
+					} else{ 
+				    echo 'Absent'
+					}
 			    }
 
 		        sh 'echo first'
