@@ -96,7 +96,7 @@ pipeline {
     post {
         always {
             echo "Pipeline completed"
-	    //cleanWs()
+	    cleanWs()
         }
     }
 }
