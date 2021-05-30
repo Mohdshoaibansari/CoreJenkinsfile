@@ -53,8 +53,8 @@ pipeline {
 
 		    steps {
 			script {
-			    def var=fileExists 'README.md'
-			    if(fileExists(README.txt)) { 
+			    def var=fileExists 'README.txt'
+			    if(var) { 
 				    echo 'Present'
 					} else{ 
 				    echo 'Absent'
